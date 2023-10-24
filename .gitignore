@@ -19,5 +19,8 @@ package-lock.json
 .vscode
 
 # Misc
+<<<<<<< HEAD
 # 주석
 # assets/js/dist
+=======
+>>>>>>> cfdb622 (chore: initialize the environment)
