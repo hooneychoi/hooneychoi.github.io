@@ -24,3 +24,5 @@ package-lock.json
 # assets/js/dist
 =======
 >>>>>>> cfdb622 (chore: initialize the environment)
+
+Gemfile.lock
