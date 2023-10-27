@@ -196,7 +196,10 @@ jekyll-archives:
 jekyll_compose:
   default_front_matter:
     drafts:
-      description:
-      image:
-      category:
-      tags:
+      author: hoon
+      category: [Unknown]
+      tags: [unknown]
+    posts:
+      author: hoon
+      category: [Unknown]
+      tags: [unknown]
