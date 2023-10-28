@@ -1,12 +1,13 @@
 ---
 layout: post
-title: 컬럼스토어 vs 로우스토어 간략 비교
+title: 컬럼스토어 인덱스 vs 로우스토어 인덱스 간략 비교
 date: 2023-10-28 20:56 +0900
 author: hoon
 category:
 - SQL
 tags:
-- 컬럼스토어
+- 인덱스
+- 컬럼스토어인덱스
 ---
 # 학습 목표
 
@@ -20,7 +21,7 @@ tags:
 
 아래 사진에서는 각 페이지마다 6개 컬럼 8개 행의 데이터가 저장돼있다.
 
-![rowstore_pages](/assets/img/sql/rowstore_pages.jpg)
+![rowstore_index_pages](/assets/img/sql/rowstore_index_pages.jpg)
 
 인덱스가 적절히 만들어져 있다고 가정할 때 seek 탐색에 유용하다. 따라서 OLTP에서 사용되는 저장 방식이다. 
 
@@ -32,7 +33,7 @@ tags:
 # 컬럼스토어
 컬럼스토어는 로우스토어와 물리적으로 다르게 저장된다. 컬럼마다 페이지가 따로 저장된다.
 
-![columestore_pages](/assets/img/sql/columestore_pages.jpg)
+![columestore_index_pages](/assets/img/sql/columestore_index_pages.jpg)
 
 컬럼이 물리적으로 분리되어 저장됐기 때문에 `SELECT * FROM TableName WHERE SalesOrderID = 43659 and ProductID = 776` 쿼리를 수행하려면 모든 페이지를 다 읽는 수 밖에 없다. 왜냐하면 SELECT절에 모든 컬럼(페이지)이 포함됐기 때문이다.
 
