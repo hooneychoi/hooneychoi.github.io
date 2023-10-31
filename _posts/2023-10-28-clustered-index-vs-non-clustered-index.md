@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 클러스터드 인덱스 vs 넌클러스터드 인덱스
 date: 2023-10-28 23:37 +0900
 author: hoon

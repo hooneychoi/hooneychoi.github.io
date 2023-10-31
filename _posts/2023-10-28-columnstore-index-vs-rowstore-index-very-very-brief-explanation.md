@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 컬럼스토어 인덱스 vs 로우스토어 인덱스 간략 비교
 date: 2023-10-28 20:56 +0900
 author: hoon
