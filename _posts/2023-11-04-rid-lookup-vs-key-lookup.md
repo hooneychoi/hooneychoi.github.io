@@ -23,13 +23,12 @@ GO 1000
 INSERT INTO TestTable VALUES ('DD','EE','FF')
 GO 1000
 ```
-
 ## 힙테이블 조회
 ```sql
 SELECT *
 FROM TestTable
 ```
-![heap_scan](/assets/img/sql/heap_scan.png)
+![heap_scan](/assets/img/sql/heap_scan.png){: width="400"}
 
 ## 넌클러스터드 인덱스 생성
 ```sql
@@ -42,14 +41,14 @@ CREATE NONCLUSTERED INDEX NIX ON TestTable (ID)
 SELECT *
 FROM TestTable
 ```
-![heap_scan](/assets/img/sql/heap_scan.png)
+![heap_scan](/assets/img/sql/heap_scan.png){: width="400"}
 
 ```sql
 SELECT *
 FROM TestTable
 WHERE ID > 5
 ```
-![heap_scan](/assets/img/sql/heap_scan.png)
+![heap_scan](/assets/img/sql/heap_scan.png){: width="400"}
 
 ### RID Lookup
 인덱스의 키값을 조회하는 쿼리에서 드디어 인덱스가 사용됐다.
@@ -61,7 +60,7 @@ FROM TestTable
 WHERE ID = 5
 ```
 
-![rid_lookup](/assets/img/sql/rid_lookup.png)
+![rid_lookup](/assets/img/sql/rid_lookup.png){: width="400"}
 
 ## 클러스터드 인덱스 생성
 이제 이 테이블은 더이상 힙테이블이 아니다.
@@ -75,6 +74,6 @@ FROM TestTable
 WHERE ID = 5
 ```
 
-![key_lookup](/assets/img/sql/key_lookup.png)
+![key_lookup](/assets/img/sql/key_lookup.png){: width="400"}
 
 `SELECT`절에 `CIX`에 포함되지 않은 열(여기서는 전체)이 있지만, 어차피 조건절의 키값으로 데이터가 물리적으로 정렬되어 있어서 스캔이 아니라 검색이 사용됐다.

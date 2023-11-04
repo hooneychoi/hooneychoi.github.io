@@ -33,7 +33,7 @@ FROM TestTable
 WHERE ID = 5
 ```
 
-![rid_lookup](/assets/img/sql/rid_lookup2.png)
+![rid_lookup](/assets/img/sql/rid_lookup2.png){: width="400"}
 
 ## INCLUDE
 ```sql
@@ -44,5 +44,5 @@ SELECT Id, First_Name
 FROM TestTable
 WHERE ID = 5
 ```
-![index_seek](/assets/img/sql/index_seek.png)
+![index_seek](/assets/img/sql/index_seek.png){: width="400"}
 인덱스 파일에 저 컬럼의 데이터가 물리적으로 저장되었기 때문에 데이터 리프까지 갈 필요가 없어서 쿼리가 개선됐다.

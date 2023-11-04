@@ -203,3 +203,6 @@ jekyll_compose:
       author: hoon
       category: [Unknown]
       tags: [unknown]
+
+# header toc
+# https://github.com/cotes2020/jekyll-theme-chirpy/issues/679
