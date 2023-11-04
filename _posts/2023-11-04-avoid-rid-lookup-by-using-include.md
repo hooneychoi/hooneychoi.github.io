@@ -9,7 +9,7 @@ tags:
 ---
 ## 데이터 준비
 
-```SQL
+```sql
 CREATE TABLE TestTable (
     ID INT IDENTITY(1, 1)
     , First_Name VARCHAR(50)
@@ -23,11 +23,11 @@ INSERT INTO TestTable VALUES ('DD','EE','FF')
 GO 1000
 ```
 
-```SQL
+```sql
 CREATE NONCLUSTERED INDEX NIX ON TestTable (ID)
 ```
 ## RID Lookup
-```SQL
+```sql
 SELECT Id, First_Name
 FROM TestTable
 WHERE ID = 5
@@ -36,10 +36,10 @@ WHERE ID = 5
 ![rid_lookup](/assets/img/sql/rid_lookup2.png)
 
 ## INCLUDE
-```SQL
+```sql
 CREATE NONCLUSTERED INDEX NIX2 ON TestTable (ID) INCLUDE (First_Name)
 ```
-```SQL
+```sql
 SELECT Id, First_Name
 FROM TestTable
 WHERE ID = 5

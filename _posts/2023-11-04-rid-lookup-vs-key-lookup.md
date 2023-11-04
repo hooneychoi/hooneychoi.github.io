@@ -10,7 +10,7 @@ tags:
 ---
 ## 데이터 준비
 
-```SQL
+```sql
 CREATE TABLE TestTable (
     ID INT IDENTITY(1, 1)
     , First_Name VARCHAR(50)
@@ -25,26 +25,26 @@ GO 1000
 ```
 
 ## 힙테이블 조회
-```SQL
+```sql
 SELECT *
 FROM TestTable
 ```
 ![heap_scan](/assets/img/sql/heap_scan.png)
 
 ## 넌클러스터드 인덱스 생성
-```SQL
+```sql
 CREATE NONCLUSTERED INDEX NIX ON TestTable (ID)
 ```
 
 ### 인덱스가 있는데도 테이블 스캔이 발생
 아마도 인덱스를 사용할 필요가 없어서 인듯.
-```SQL
+```sql
 SELECT *
 FROM TestTable
 ```
 ![heap_scan](/assets/img/sql/heap_scan.png)
 
-```SQL
+```sql
 SELECT *
 FROM TestTable
 WHERE ID > 5
@@ -55,7 +55,7 @@ WHERE ID > 5
 인덱스의 키값을 조회하는 쿼리에서 드디어 인덱스가 사용됐다.
 `SELECT`절에 `NIX`에 포함되지 않은 열(여기서는 전체)이 있으므로 나머지 값을 구하려면 데이터 페이지까지 도달해야한다.
 인덱스의 포인터(RID)를 따라 데이터 페이지를 찾는 것이 RID Loopup이다.
-```SQL
+```sql
 SELECT *
 FROM TestTable
 WHERE ID = 5
@@ -65,11 +65,11 @@ WHERE ID = 5
 
 ## 클러스터드 인덱스 생성
 이제 이 테이블은 더이상 힙테이블이 아니다.
-```SQL
+```sql
 CREATE CLUSTERED INDEX CIX ON TestTable (ID)
 ```
 
-```SQL
+```sql
 SELECT *
 FROM TestTable
 WHERE ID = 5
