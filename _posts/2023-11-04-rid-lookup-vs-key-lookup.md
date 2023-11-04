@@ -53,7 +53,7 @@ WHERE ID > 5
 ### RID Lookup
 인덱스의 키값을 조회하는 쿼리에서 드디어 인덱스가 사용됐다.
 `SELECT`절에 `NIX`에 포함되지 않은 열(여기서는 전체)이 있으므로 나머지 값을 구하려면 데이터 페이지까지 도달해야한다.
-인덱스의 포인터(RID)를 따라 데이터 페이지를 찾는 것이 RID Loopup이다.
+인덱스의 포인터(RID)를 따라 데이터 페이지를 찾는 것이 RID Lookup이다.
 ```sql
 SELECT *
 FROM TestTable
