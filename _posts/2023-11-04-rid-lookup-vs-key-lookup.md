@@ -29,7 +29,7 @@ GO 1000
 SELECT *
 FROM TestTable
 ```
-![heap_scan](/assets/img/sql/heap_scan.png)
+![heap_scan](/assets/img/sql/heap_scan.png){width=300}
 
 ## 넌클러스터드 인덱스 생성
 ```sql
@@ -42,7 +42,7 @@ CREATE NONCLUSTERED INDEX NIX ON TestTable (ID)
 SELECT *
 FROM TestTable
 ```
-![heap_scan](/assets/img/sql/heap_scan.png)
+![heap_scan](/assets/img/sql/heap_scan.png){width=300}
 
 ```sql
 SELECT *
