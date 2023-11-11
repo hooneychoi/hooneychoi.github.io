@@ -98,25 +98,6 @@ select
 ,   (select first_name, last_name from parent_child where parent_id = a.id for json auto) children
 from parent_child a
 ```
-|id|first_name|last_name|parent_id|children|
-|---|---|---|---|---|
-|1|Rosa|Wellington|NULL|[{&quot;first_name&quot;:&quot;Jon&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Joni&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Marge&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|2|Jon|Wellington|1|[{&quot;first_name&quot;:&quot;Mary&quot;,&quot;last_name&quot;:&quot;Dijkstra&quot;},{&quot;first_name&quot;:&quot;Frank&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|3|Joni|Wellington|1|[{&quot;first_name&quot;:&quot;Jason&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|4|Marge|Wellington|1|[{&quot;first_name&quot;:&quot;Bobby&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Sammy&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Sarah&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|5|Mary|Dijkstra|2|[{&quot;first_name&quot;:&quot;Sam Francis&quot;,&quot;last_name&quot;:&quot;Dijkstra&quot;}]|
-|6|Frank|Wellington|2|[{&quot;first_name&quot;:&quot;Stephen&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Trent&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|7|Jason|Wellington|3|NULL|
-|8|Bobby|Wellington|4|NULL|
-|9|Sammy|Wellington|4|[{&quot;first_name&quot;:&quot;June&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Josephine&quot;,&quot;last_name&quot;:&quot;Wellington&quot;},{&quot;first_name&quot;:&quot;Suzy&quot;,&quot;last_name&quot;:&quot;Wellington&quot;}]|
-|10|Sarah|Wellington|4|NULL|
-|11|Sam Francis|Dijkstra|5|NULL|
-|12|Stephen|Wellington|6|NULL|
-|13|Trent|Wellington|6|NULL|
-|14|June|Wellington|9|NULL|
-|15|Josephine|Wellington|9|NULL|
-|16|Suzy|Wellington|9|NULL|
-
 
 ## 참조
 - <https://learnsql.com/blog/query-parent-child-tree/>
