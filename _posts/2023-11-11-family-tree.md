@@ -7,7 +7,7 @@ category:
 tags:
 - CTE
 ---
-```SQL
+```sql
 use [work]
 go
 
