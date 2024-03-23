@@ -22,12 +22,21 @@ tags:
 
 
 ## TVP 사용 예시
+
 ```SQL
 CREATE DATABASE work
 GO
 
 USE work
 GO
+
+/*
+CREATE TYPE ty_gamelog AS TABLE(
+    uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
+,   log_type INT
+) WITH ( MEMORY_OPTIMIZED = ON )
+GO
+*/
 
 --type
 CREATE TYPE ty_gamelog AS TABLE(
@@ -52,7 +61,9 @@ SET NOCOUNT ON
 INSERT INTO tb_gamelog
 SELECT * FROM @gamelog
 GO
+```
 
+```SQL
 --insert into tvp and call procedure
 DECLARE @gamelog ty_gamelog
 
