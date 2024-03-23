@@ -23,28 +23,24 @@ tags:
 
 ## 2. TVP 사용 예시
 ```SQL
---type
 CREATE TYPE ty_gamelog AS TABLE(
     uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
 ,   log_type INT
 ) WITH ( MEMORY_OPTIMIZED = ON )
 GO
 
---type
 CREATE TYPE ty_gamelog AS TABLE(
     uid UNIQUEIDENTIFIER
 ,   log_type INT
 )
 GO
 
---table
 CREATE TABLE tb_gamelog (
     uid UNIQUEIDENTIFIER
 ,   log_type INT
 )
 GO
 
---procedure
 CREATE PROCEDURE sp_insert_gamelog 
     @gamelog ty_gamelog READONLY
 AS
@@ -54,7 +50,6 @@ INSERT INTO tb_gamelog
 SELECT * FROM @gamelog
 GO
 
---insert into tvp and call procedure
 DECLARE @gamelog ty_gamelog
 
 INSERT INTO @gamelog
