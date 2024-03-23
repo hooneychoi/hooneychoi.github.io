@@ -22,11 +22,63 @@ tags:
 
 
 ## TVP 사용 예시
+```SQL
+CREATE DATABASE work
+GO
 
-<script src="https://gist.github.com/hooneychoi/c0d5c8358eca2d9eeec12d493d78f78a.js"></script>
+USE work
+GO
 
+/*
+CREATE TYPE ty_gamelog AS TABLE(
+    uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
+,   log_type INT
+) WITH ( MEMORY_OPTIMIZED = ON )
+GO
+*/
+
+--type
+CREATE TYPE ty_gamelog AS TABLE(
+    uid UNIQUEIDENTIFIER
+,   log_type INT
+)
+GO
+
+--table
+CREATE TABLE tb_gamelog (
+    uid UNIQUEIDENTIFIER
+,   log_type INT
+)
+GO
+
+--procedure
+CREATE PROCEDURE sp_insert_gamelog 
+    @gamelog ty_gamelog READONLY
+AS
+SET NOCOUNT ON
+
+INSERT INTO tb_gamelog
+SELECT * FROM @gamelog
+GO
+
+--insert into tvp and call procedure
+DECLARE @gamelog ty_gamelog
+
+INSERT INTO @gamelog
+SELECT TOP 1000
+    NEWID() uid
+,   ABS(CHECKSUM(NewId())) log_type
+FROM master..spt_values t1 
+CROSS JOIN master..spt_values t2
+
+EXEC sp_insert_gamelog @gamelog
+```
 
 ## 장점
 - set based operation이 가능하다.
-- 
+- 머지문이랑 같이쓰면 좋다.
+- 클라이언트에서 원하는 값을 제어해서 전달할 수 있다.
+- 임시 테이블 안만들어도 된다.
 ## 단점
+- 형변형 할 수 없다. READONLY
+- 1000개 행 미만에만 쓰자. 1000개 행 넘으면 벌크 인서트하자. [참고](https://www.sqlshack.com/table-valued-parameters-in-sql-server/)
