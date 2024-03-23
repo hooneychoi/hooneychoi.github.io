@@ -8,21 +8,6 @@ tags:
 - 프로시저
 - TVP
 ---
-```sql
-select * from a
-```
-
-```sql
-select uid from a
-```
-
-```SQL
-CREATE TYPE ty_gamelog AS TABLE(
-    uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
-,   log_type INT
-) WITH  (MEMORY_OPTIMIZED = ON)
-```
-
 ## 1. 상황
 프로시저나 함수에 여러개의 값을 전달하고 싶다. \
 값의 개수는 1 ~ 1000개 사이다. \
@@ -36,46 +21,7 @@ CREATE TYPE ty_gamelog AS TABLE(
 `프로시저에 TVP`를 전달하는 방법으로 해결해보자.
 
 ## 2. TVP 사용 예시
-```SQL
-CREATE TYPE ty_gamelog AS TABLE(
-    uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
-,   log_type INT
-) WITH ( MEMORY_OPTIMIZED = ON )
-GO
-
-CREATE TYPE ty_gamelog AS TABLE(
-    uid UNIQUEIDENTIFIER
-,   log_type INT
-)
-GO
-
-CREATE TABLE tb_gamelog (
-    uid UNIQUEIDENTIFIER
-,   log_type INT
-)
-GO
-
-CREATE PROCEDURE sp_insert_gamelog 
-    @gamelog ty_gamelog READONLY
-AS
-SET NOCOUNT ON
-
-INSERT INTO tb_gamelog
-SELECT * FROM @gamelog
-GO
-
-DECLARE @gamelog ty_gamelog
-
-INSERT INTO @gamelog
-SELECT TOP 1000
-    NEWID() uid
-,   ABS(CHECKSUM(NewId())) log_type
-FROM master..spt_values t1 
-CROSS JOIN master..spt_values t2
-
-EXEC sp_insert_gamelog @gamelog
-```
-
+<script src="https://gist.github.com/hooneychoi/c0d5c8358eca2d9eeec12d493d78f78a.js"></script>
 
 ## 3. 장점
 - set based operation이 가능하다.
