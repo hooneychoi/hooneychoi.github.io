@@ -7,14 +7,6 @@ category:
 tags:
 - 설치
 ---
-- [1. 도커 설치](#1-도커-설치)
-- [2. Azure SQL Edge 설치](#2-azure-sql-edge-설치)
-- [3. Azure Data Studio 설치 후 연결 설정](#3-azure-data-studio-설치-후-연결-설정)
-- [4. 샘플 데이터베이스 설치](#4-샘플-데이터베이스-설치)
-- [5. 도커 컨테이너로 복사](#5-도커-컨테이너로-복사)
-- [6. 복원](#6-복원)
----
-
 ## 1. 도커 설치
 ## 2. Azure SQL Edge 설치
 ```shell
