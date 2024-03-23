@@ -8,11 +8,19 @@ tags:
 - 프로시저
 - TVP
 ---
+```sql
+select * from a
+```
+
+```sql
+select uid from a
+```
+
 ```SQL
 CREATE TYPE ty_gamelog AS TABLE(
     uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
 ,   log_type INT
-) WITH ( MEMORY_OPTIMIZED = ON )
+) WITH  MEMORY_OPTIMIZED = ON)
 GO
 ```
 ## 1. 상황
