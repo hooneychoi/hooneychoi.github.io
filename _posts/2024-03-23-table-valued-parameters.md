@@ -81,4 +81,4 @@ EXEC sp_insert_gamelog @gamelog
 - 임시 테이블 안만들어도 된다.
 ## 단점
 - 형변형 할 수 없다. READONLY
-- 1000개 행 미만에만 쓰자. 1000개 행 넘으면 벌크 인서트하자. [참고](https://www.sqlshack.com/table-valued-parameters-in-sql-server/)
+- 1000개 행 미만에만 쓰자. 1000개 행 넘으면 벌크 인서트하자. [참고](https://www.sqlshack.com/table-valued-parameters-in-sql-server/), [참고2](https://thwack.solarwinds.com/groups/data-driven/b/blog/posts/table-valued-parameters-vs-sqlbulkcopy-for-bulk-loading-data-into-sql-server)
