@@ -20,9 +20,9 @@ select uid from a
 CREATE TYPE ty_gamelog AS TABLE(
     uid UNIQUEIDENTIFIER PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT = 1000)
 ,   log_type INT
-) WITH  MEMORY_OPTIMIZED = ON)
-GO
+) WITH  (MEMORY_OPTIMIZED = ON)
 ```
+
 ## 1. 상황
 프로시저나 함수에 여러개의 값을 전달하고 싶다. \
 값의 개수는 1 ~ 1000개 사이다. \
