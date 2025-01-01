@@ -1,5 +1,5 @@
 ---
-title: git workflow
+title: Git workflow
 date: "2024-12-31T21:41:41+09:00"
 categories: [Knowledge, IT]
 tags: [git, development]
@@ -7,7 +7,7 @@ description: 로그인 기능 개발을 위한 Git과 GitHub 워크플로우입�
 author: hoon
 ---
 
-## 예시
+## 1. 예시
 가상의 시나리오입니다.
 
 기존의 프로젝트 리포지토리를 클론 후 로컬에서 개발 한 뒤 머지하는 과정입니다.
@@ -28,7 +28,7 @@ author: hoon
 | 12. Notify for Final Review              |                                                               | Developer    | Notify the reviewer to perform the final code review.            |
 | 13. Merge Pull Request                   |                                                               | Team Lead    | Merge the pull request into the main branch.                     |
 
-### Merging Using Git Command Line (Without Pull Request)
+### 1.1. Merging Using Git Command Line (Without Pull Request)
 
 | Step | Action                                                 | Git Command                                                 | Description                                                                                          |
 | :--- | :----------------------------------------------------- | :---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ author: hoon
 | 6    | Push the merged `main` branch to the remote repository | `git push origin main`                                      | Push the updated `main` branch (including the merged changes) to the remote repository.              |
 
 
-## key takeaways
+## 2. key takeaways
 - `origin`: 클론한 원격 저장소의 기본 이름. Connection 이름(url보다 간편). 따라서 다른 이름으로 바꿔도 무관함. 예) `git remote rename origin upstream`
 - `git push origin [로컬 브랜치 이름]`: 로컬 브랜치를 `origin`에 밀어넣기(게시, 생성, 업데이트) 하는 것
 - `git pull origin main`: 원격 저장소를 가져와서 로컬 저장소의 main 브랜치에 덮어 씌우기
