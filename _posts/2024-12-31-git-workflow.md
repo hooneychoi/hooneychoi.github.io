@@ -29,7 +29,8 @@ author: hoon
 | 13. Merge Pull Request            |                                                                       | Team Lead    | Merge the pull request into the main branch.                                                           |
 
 ### 1.1. key takeaways
-![alt text](/assets/posts/2024-12-31-git-workflow-remote-repositories.png)
+![alt text](/assets/img/posts/2024-12-31-git-workflow-remote-repositories.png){: width="400"}
+
 - `origin`: 클론한 원격 저장소의 기본 이름. Connection 이름(url보다 간편). 따라서 다른 이름으로 바꿔도 무관함. 예) `git remote rename origin upstream`
 - `git push origin [로컬 브랜치 이름]`: 로컬 브랜치를 `origin`에 밀어넣기(게시, 생성, 업데이트) 하는 것
 - `git pull origin main`: 원격 저장소를 가져와서 로컬 저장소의 main 브랜치에 덮어 씌우기
