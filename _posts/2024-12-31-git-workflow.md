@@ -6,7 +6,8 @@ tags: [git, development]
 description: 로그인 기능 개발을 위한 Git과 GitHub 워크플로우입니다.
 author: hoon
 ---
-test
+
+## 예시
 가상의 시나리오입니다.
 
 기존의 프로젝트 리포지토리를 클론 후 로컬에서 개발 한 뒤 머지하는 과정입니다.
@@ -26,4 +27,7 @@ test
 | 11. Resolve Conflicts and Push           | `git push origin feature/login-function`                      | Developer    | Resolve any conflicts and push the changes.                      |
 | 12. Notify for Final Review              |                                                               | Developer    | Notify the reviewer to perform the final code review.            |
 | 13. Merge Pull Request                   |                                                               | Team Lead    | Merge the pull request into the main branch.                     |
-| 14. Push After Merge                     | `git push origin main`                                        | Team Lead    | Push the merged changes to the main branch.                      |
+
+## key takeaways
+- `git push origin [로컬 브랜치 이름]`: 로컬 브랜치를 원격 저장소(= origin, 최초에 클론해온 대상, reference 이름)에 밀어넣기(게시, 생성, 업데이트) 하는 것
+- `git pull origin main`: 원격 저장소를 가져와서 로컬 저장소에 덮어 씌우기
