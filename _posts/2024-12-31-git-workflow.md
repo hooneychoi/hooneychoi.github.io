@@ -28,6 +28,18 @@ author: hoon
 | 12. Notify for Final Review              |                                                               | Developer    | Notify the reviewer to perform the final code review.            |
 | 13. Merge Pull Request                   |                                                               | Team Lead    | Merge the pull request into the main branch.                     |
 
+### Merging Using Git Command Line (Without Pull Request)
+
+| Step | Action                                                 | Git Command                                                 | Description                                                                                          |
+| :--- | :----------------------------------------------------- | :---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
+| 1    | Switch to the `main` branch                            | `git checkout main`                                         | Ensure you are on the `main` branch before merging.                                                  |
+| 2    | Pull the latest changes from the remote `main` branch  | `git pull origin main`                                      | Update your local `main` branch to make sure it's up-to-date with the remote repository.             |
+| 3    | Merge the feature branch into `main`                   | `git merge feature/login-function`                          | Merge changes from the feature branch (e.g., `feature/login-function`) into `main`.                  |
+| 4    | Resolve any merge conflicts (if needed)                | Edit conflicting files, then `git add <file-with-conflict>` | If there are any merge conflicts, manually resolve them in the affected files and stage the changes. |
+| 5    | Commit the merge                                       | `git commit`                                                | If there were conflicts, commit the resolved merge changes (Git auto-generates a commit message).    |
+| 6    | Push the merged `main` branch to the remote repository | `git push origin main`                                      | Push the updated `main` branch (including the merged changes) to the remote repository.              |
+
+
 ## key takeaways
 - `git push origin [로컬 브랜치 이름]`: 로컬 브랜치를 원격 저장소(= origin, 최초에 클론해온 대상, reference 이름)에 밀어넣기(게시, 생성, 업데이트) 하는 것
 - `git pull origin main`: 원격 저장소를 가져와서 로컬 저장소에 덮어 씌우기
