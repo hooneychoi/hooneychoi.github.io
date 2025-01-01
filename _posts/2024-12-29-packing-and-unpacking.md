@@ -273,7 +273,7 @@ my_function(**numbers)
 
     1 2 3
     1 2 3
-
+    1 2 3
 
 ### 4.3. Using * unpacking with the zip() function
 
