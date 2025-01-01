@@ -5,7 +5,7 @@ categories: [Knowledge, IT]
 tags: [git, development]
 description: 
 author: hoon
-hide: true
+published: false
 ---
 
 
